@@ -4,124 +4,282 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BuzzBite - Chew Your Energy</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXRNtSx9+Y+4lhw7bMlj6Vq5C2LWtUK0uPSb+N1IAt0KZa4X8fl6+0Tj6fYfH4k6kRhID3gA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* Reset & Global Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Reset and Global Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #fff; color: #333; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Navigation */
+    nav {
+      background: #FF6B00;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #fff;
-      color: #333;
-      line-height: 1.6;
+    nav .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+    nav .logo i { margin-right: 10px; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      position: relative;
+      cursor: pointer;
+    }
+    nav ul li:hover::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #fff;
     }
     
     /* Hero Section */
     .hero {
       background: linear-gradient(135deg, #FF6B00, #FFA500);
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
-      color: #fff;
       position: relative;
+      overflow: hidden;
     }
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
       margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: fadeInDown 1s ease-out;
     }
     .hero p {
       font-size: 1.2rem;
+      color: #fff;
       margin-bottom: 30px;
+      animation: fadeIn 1.5s ease-out;
     }
     .hero img {
-      max-width: 90%;
-      height: auto;
+      width: 80%;
+      max-width: 500px;
       border: 5px solid #fff;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border-radius: 10px;
+      transition: transform 0.3s ease;
     }
-    
-    /* CTA Buttons */
+    .hero img:hover { transform: scale(1.05); }
     .cta-buttons {
+      margin-top: 30px;
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      animation: fadeInUp 1s ease-out;
     }
     .cta-buttons a {
-      text-decoration: none;
-      font-weight: bold;
-      padding: 15px 30px;
-      border-radius: 25px;
-      background-color: #fff;
+      background: #fff;
       color: #FF6B00;
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: transform 0.3s ease, background 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
     .cta-buttons a:hover {
-      transform: scale(1.05);
-      background-color: #f7f7f7;
+      transform: scale(1.1);
+      background: #f2f2f2;
     }
-    
-    /* Countdown Timer */
     .countdown {
+      margin-top: 20px;
       font-size: 1.5rem;
-      font-weight: bold;
-      margin-top: 10px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      animation: fadeIn 2s ease-out;
     }
     
     /* Features Section */
-    section {
-      padding: 40px 20px;
+    .features-section {
+      padding: 60px 20px;
+      background: #f5f5f5;
       text-align: center;
+    }
+    .features-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #FF6B00;
+      font-family: 'Montserrat', sans-serif;
     }
     .features {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 30px;
     }
     .feature-card {
-      background-color: #f9f9f9;
-      border-radius: 10px;
-      padding: 20px;
+      background: #fff;
+      padding: 30px 20px;
       width: 280px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
     }
     .feature-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+    .feature-card i {
+      font-size: 3rem;
+      color: #FF6B00;
+      margin-bottom: 15px;
     }
     .feature-card h3 {
+      font-size: 1.5rem;
       margin-bottom: 10px;
-      color: #FF6B00;
+      color: #333;
+    }
+    .feature-card p {
+      font-size: 1rem;
+      color: #666;
     }
     
     /* How It Works Section */
-    #how {
-      background-color: #f5f5f5;
+    .how-section {
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
+    .how-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #FF6B00;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .step {
+      background: #f9f9f9;
+      padding: 20px;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .step:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+    .step i {
+      font-size: 2.5rem;
+      color: #FF6B00;
+      margin-bottom: 10px;
+    }
+    .step h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .step p {
+      font-size: 1rem;
+      color: #666;
     }
     
     /* Footer */
     footer {
-      background-color: #FF6B00;
+      background: #FF6B00;
       color: #fff;
-      padding: 20px;
+      padding: 40px 20px;
       text-align: center;
+    }
+    footer p { margin-bottom: 10px; font-size: 1rem; }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .social-icons a {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    .social-icons a:hover { transform: scale(1.2); }
+    
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .features, .steps {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <i class="fas fa-bolt"></i> BuzzBite
+    </div>
+    <ul>
+      <li><i class="fas fa-home"></i> Home</li>
+      <li><i class="fas fa-info-circle"></i> About</li>
+      <li><i class="fas fa-concierge-bell"></i> How It Works</li>
+      <li><i class="fas fa-phone"></i> Contact</li>
+    </ul>
+  </nav>
+  
   <!-- Hero Section -->
   <section class="hero">
     <h1>Chew Energy. Anytime. Anywhere.</h1>
     <p>BuzzBite is your sugar-free caffeine kick. Feel the buzz in just 5 minutes.</p>
-    <!-- Main image from GitHub (using the raw URL for direct access) -->
-    <img src="https://raw.githubusercontent.com/som221993/buzzbite/main/WhatsApp%20Image%202025-03-24%20at%2018.31.50.jpeg" alt="BuzzBite Chewing Gum" />
+    <!-- Main image (using raw URL from GitHub) -->
+    <img src="https://raw.githubusercontent.com/som221993/buzzbite/main/WhatsApp%20Image%202025-03-24%20at%2018.31.50.jpeg" alt="BuzzBite Chewing Gum">
     <div class="cta-buttons">
-      <a href="#order">Try BuzzBite Now</a>
-      <a href="#how">See How It Works</a>
+      <a href="#order"><i class="fas fa-shopping-cart"></i> Try BuzzBite Now</a>
+      <a href="#how"><i class="fas fa-play-circle"></i> See How It Works</a>
     </div>
     <div class="countdown" id="countdown">
       Offer ends in: <span id="time"></span>
@@ -133,14 +291,17 @@
     <h2>Why BuzzBite?</h2>
     <div class="features">
       <div class="feature-card">
+        <i class="fas fa-bolt"></i>
         <h3>Fast-Acting Energy</h3>
         <p>Caffeine kicks in within 5 minutes!</p>
       </div>
       <div class="feature-card">
+        <i class="fas fa-ban"></i>
         <h3>Zero Sugar, No Crash</h3>
-        <p>Clean energy without sugar spikes.</p>
+        <p>Clean energy without the sugar spike.</p>
       </div>
       <div class="feature-card">
+        <i class="fas fa-mobile-alt"></i>
         <h3>Pocket-Sized Power</h3>
         <p>Fits in your pocket, fuels your day.</p>
       </div>
@@ -148,23 +309,39 @@
   </section>
   
   <!-- How It Works Section -->
-  <section id="how">
+  <section class="how-section" id="how">
     <h2>How It Works</h2>
-    <p>
-      1. Pop a BuzzBite<br>
-      2. Wait 5 minutes<br>
-      3. Feel the buzz and get energized!
-    </p>
+    <div class="steps">
+      <div class="step">
+        <i class="fas fa-chewing"></i>
+        <h3>Step 1: Pop a BuzzBite</h3>
+        <p>Experience a burst of energy as soon as you chew.</p>
+      </div>
+      <div class="step">
+        <i class="fas fa-hourglass-half"></i>
+        <h3>Step 2: Wait 5 Minutes</h3>
+        <p>Let the caffeine activate and rev up your senses.</p>
+      </div>
+      <div class="step">
+        <i class="fas fa-rocket"></i>
+        <h3>Step 3: Get Energized</h3>
+        <p>Feel the power surge as you conquer your day!</p>
+      </div>
+    </div>
   </section>
   
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 BuzzBite. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
   </footer>
   
   <!-- JavaScript for Countdown Timer -->
   <script>
-    // Countdown Timer
     const countdownElement = document.getElementById("time");
     // Set offer end date 3 days from now
     const offerEndDate = new Date();
@@ -187,7 +364,6 @@
       countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
     }
 
-    // Update the countdown every second
     setInterval(updateCountdown, 1000);
     updateCountdown();
   </script>
