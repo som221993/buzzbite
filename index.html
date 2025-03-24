@@ -1,526 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BuzzBite - Chew Your Energy</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXRNtSx9+Y+4lhw7bMlj6Vq5C2LWtUK0uPSb+N1IAt0KZa4X8fl6+0Tj6fYfH4k6kRhID3gA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buzz Bite - Caffeinated Chewing Gum</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* Reset & Global Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; background: #fff; color: #333; line-height: 1.6; }
-    a { text-decoration: none; color: inherit; }
-    
-    /* Header */
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #fff;
+      color: #111;
+    }
     header {
-      background: #FF6B00;
-      padding: 20px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background: #000;
+      color: #FFD700;
+      padding: 2rem;
+      text-align: center;
     }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.8rem;
-      color: #fff;
-      display: flex;
-      align-items: center;
-    }
-    .logo i { margin-right: 10px; }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-    nav ul li {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-      cursor: pointer;
-      position: relative;
-    }
-    nav ul li:hover::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background: #fff;
-      bottom: -5px;
-      left: 0;
-    }
-    
-    /* Hero Section (Split Layout) */
     .hero {
+      position: relative;
+      height: 90vh;
+      overflow: hidden;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #FF6B00, #FFA500);
+      background-color: #000;
       color: #fff;
-      position: relative;
-      overflow: hidden;
     }
-    .hero-content, .hero-image {
-      flex: 1;
-      min-width: 300px;
-      padding: 20px;
-    }
-    .hero-content h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-    .hero-buttons a {
-      background: #fff;
-      color: #FF6B00;
-      padding: 15px 30px;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: transform 0.3s ease, background 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .hero-buttons a:hover {
-      transform: scale(1.1);
-      background: #f2f2f2;
-    }
-    .countdown {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-top: 10px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    }
-    .hero-image {
-      text-align: center;
-    }
-    .hero-image img {
-      width: 100%;
-      max-width: 500px;
-      border: 5px solid #fff;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-    .hero-image img:hover { transform: scale(1.05); }
-    
-    /* Features Section */
-    .features {
-      padding: 60px 20px;
-      background: #f5f5f5;
-      text-align: center;
-    }
-    .features h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      color: #FF6B00;
-      margin-bottom: 40px;
-    }
-    .feature-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
-    .feature-card {
-      background: #fff;
-      padding: 30px;
-      width: 280px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-    }
-    .feature-card i {
-      font-size: 3rem;
-      color: #FF6B00;
-      margin-bottom: 15px;
-    }
-    .feature-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .feature-card p {
-      font-size: 1rem;
-      color: #666;
-    }
-    
-    /* How It Works Section */
-    .how-it-works {
-      padding: 60px 20px;
-      background: #fff;
-      text-align: center;
-    }
-    .how-it-works h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      color: #FF6B00;
-      margin-bottom: 40px;
-    }
-    .steps {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
-    .step {
-      background: #f9f9f9;
-      padding: 20px;
-      width: 250px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .step:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-    }
-    .step i {
-      font-size: 2.5rem;
-      color: #FF6B00;
-      margin-bottom: 10px;
-    }
-    .step h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .step p {
-      font-size: 1rem;
-      color: #666;
-    }
-    
-    /* Testimonials Section */
-    .testimonials {
-      padding: 60px 20px;
-      background: #f5f5f5;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .testimonials h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      color: #FF6B00;
-      margin-bottom: 40px;
-    }
-    .testimonial-slider {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      width: 300%;
-    }
-    .testimonial {
-      width: 100%;
-      flex-shrink: 0;
-      padding: 0 20px;
-    }
-    .testimonial p {
-      font-size: 1.2rem;
-      color: #333;
-      margin-bottom: 15px;
-    }
-    .testimonial h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #FF6B00;
-    }
-    .slider-controls {
+    .hero video {
       position: absolute;
-      top: 50%;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.4;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .hero button {
+      background: #FFD700;
+      color: #000;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .benefits {
+      display: flex;
+      justify-content: space-around;
+      padding: 4rem 2rem;
+      background: #f9f9f9;
+    }
+    .benefit {
+      text-align: center;
+      max-width: 200px;
+    }
+    .benefit i {
+      font-size: 2.5rem;
+      color: #FFD700;
+      margin-bottom: 1rem;
+    }
+    .lifestyle {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 4rem 2rem;
+      background: #fff;
+    }
+    .lifestyle img {
+      width: 300px;
+      margin: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .flavors {
+      display: flex;
+      justify-content: center;
+      background: #000;
+      padding: 3rem 1rem;
+      color: #fff;
+    }
+    .flavor {
+      margin: 0 2rem;
+      text-align: center;
+    }
+    .flavor h3 {
+      color: #FFD700;
+      margin-top: 1rem;
+    }
+    .reviews {
+      padding: 4rem 2rem;
+      background: #f1f1f1;
+      text-align: center;
+    }
+    .review {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+    footer {
+      background: #000;
+      color: #fff;
+      padding: 2rem;
       display: flex;
       justify-content: space-between;
-      transform: translateY(-50%);
-      pointer-events: none;
+      flex-wrap: wrap;
     }
-    .slider-controls i {
-      font-size: 2rem;
-      color: #FF6B00;
-      cursor: pointer;
-      pointer-events: all;
-      transition: transform 0.3s ease;
+    footer .newsletter input {
+      padding: 0.5rem;
+      margin-right: 0.5rem;
     }
-    .slider-controls i:hover { transform: scale(1.2); }
-    
-    /* Call-to-Action Section */
-    .cta {
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #FF6B00, #FFA500);
-      text-align: center;
-      color: #fff;
+    footer a {
+      color: #FFD700;
+      margin: 0 1rem;
+      text-decoration: none;
     }
-    .cta h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-    .cta p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-    .cta a {
-      background: #fff;
-      color: #FF6B00;
-      padding: 15px 30px;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: transform 0.3s ease, background 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .cta a:hover {
-      transform: scale(1.1);
-      background: #f2f2f2;
-    }
-    .cta .countdown {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-top: 20px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    }
-    
-    /* Footer */
-    footer {
-      background: #FF6B00;
-      color: #fff;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    footer p { margin-bottom: 10px; font-size: 1rem; }
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-    .social-icons a {
-      font-size: 1.5rem;
-      transition: transform 0.3s ease;
-    }
-    .social-icons a:hover { transform: scale(1.2); }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero { flex-direction: column; }
-      nav ul { flex-direction: column; gap: 10px; }
-      .steps, .feature-grid { flex-direction: column; align-items: center; }
+    .social i {
+      margin: 0 0.5rem;
+      color: #FFD700;
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <div class="nav-container">
-      <div class="logo">
-        <i class="fas fa-bolt"></i> BuzzBite
-      </div>
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>Features</li>
-          <li>How It Works</li>
-          <li>Testimonials</li>
-          <li>Contact</li>
-        </ul>
-      </nav>
-    </div>
+    <h1>Buzz Bite</h1>
   </header>
-  
-  <!-- Hero Section -->
   <section class="hero">
+    <video autoplay muted loop>
+      <source src="https://github.com/som221993/buzzbite/blob/0c3594fcc114a3030c3d64b26bc7fb7a4dfe078e/Landing%20page%20video%20(1)%20(1).mp4?raw=true" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <div class="hero-content">
-      <h1>Chew Energy. Anytime. Anywhere.</h1>
-      <p>BuzzBite gives you a sugar-free caffeine boost in just 5 minutes.</p>
-      <div class="hero-buttons">
-        <a href="#order"><i class="fas fa-shopping-cart"></i> Try Now</a>
-        <a href="#how"><i class="fas fa-play-circle"></i> Learn More</a>
-      </div>
-      <div class="countdown" id="hero-countdown">
-        Special offer ends in: <span id="hero-time"></span>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="https://raw.githubusercontent.com/som221993/buzzbite/main/WhatsApp%20Image%202025-03-24%20at%2018.31.50.jpeg" alt="BuzzBite Chewing Gum">
+      <h1>Chew. Charge. Conquer.</h1>
+      <button>Get Your Buzz</button>
     </div>
   </section>
-  
-  <!-- Features Section -->
-  <section class="features">
-    <h2>Why Choose BuzzBite?</h2>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <i class="fas fa-bolt"></i>
-        <h3>Instant Energy</h3>
-        <p>Caffeine works in just 5 minutes!</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-ban"></i>
-        <h3>No Sugar Crash</h3>
-        <p>Zero sugar for clean energy.</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-mobile-alt"></i>
-        <h3>Portable Boost</h3>
-        <p>Compact design fits your lifestyle.</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-leaf"></i>
-        <h3>Natural Flavors</h3>
-        <p>Delicious and refreshing.</p>
-      </div>
+  <section class="benefits">
+    <div class="benefit">
+      <i class="fas fa-bolt"></i>
+      <h3>Instant Energy</h3>
+    </div>
+    <div class="benefit">
+      <i class="fas fa-smile"></i>
+      <h3>No Crash</h3>
+    </div>
+    <div class="benefit">
+      <i class="fas fa-pocket"></i>
+      <h3>Pocket-Friendly</h3>
     </div>
   </section>
-  
-  <!-- How It Works Section -->
-  <section class="how-it-works" id="how">
-    <h2>How It Works</h2>
-    <div class="steps">
-      <div class="step">
-        <i class="fas fa-chew"></i>
-        <h3>Step 1: Pop a BuzzBite</h3>
-        <p>Experience the burst of energy as you chew.</p>
-      </div>
-      <div class="step">
-        <i class="fas fa-hourglass-half"></i>
-        <h3>Step 2: Wait 5 Minutes</h3>
-        <p>Let the caffeine kick in smoothly.</p>
-      </div>
-      <div class="step">
-        <i class="fas fa-rocket"></i>
-        <h3>Step 3: Get Energized</h3>
-        <p>Feel ready to conquer your day!</p>
-      </div>
+  <section class="lifestyle">
+    <img src="https://github.com/som221993/buzzbite/blob/0c3594fcc114a3030c3d64b26bc7fb7a4dfe078e/buzzbites.png?raw=true" alt="Office use">
+    <img src="https://github.com/som221993/buzzbite/blob/0c3594fcc114a3030c3d64b26bc7fb7a4dfe078e/WhatsApp%20Image%202025-03-24%20at%2018.31.50.jpeg?raw=true" alt="Gym use">
+    <img src="https://via.placeholder.com/300" alt="Studying">
+  </section>
+  <section class="flavors">
+    <div class="flavor">
+      <img src="https://via.placeholder.com/100" alt="Mint">
+      <h3>Mint</h3>
+    </div>
+    <div class="flavor">
+      <img src="https://via.placeholder.com/100" alt="Citrus">
+      <h3>Citrus</h3>
+    </div>
+    <div class="flavor">
+      <img src="https://via.placeholder.com/100" alt="Berry">
+      <h3>Berry</h3>
     </div>
   </section>
-  
-  <!-- Testimonials Section -->
-  <section class="testimonials">
-    <h2>What Our Chewers Say</h2>
-    <div class="testimonial-slider" id="testimonial-slider">
-      <div class="testimonial">
-        <p>"BuzzBite changed my routine. No more coffee crashes!"</p>
-        <h4>- Alex, Designer</h4>
-      </div>
-      <div class="testimonial">
-        <p>"I love the convenience and quick energy boost. Amazing product!"</p>
-        <h4>- Jamie, Student</h4>
-      </div>
-      <div class="testimonial">
-        <p>"A pocket-sized powerhouse. BuzzBite is my go-to for staying alert."</p>
-        <h4>- Sam, Entrepreneur</h4>
-      </div>
-    </div>
-    <div class="slider-controls">
-      <i class="fas fa-chevron-left" id="prev"></i>
-      <i class="fas fa-chevron-right" id="next"></i>
-    </div>
+  <section class="reviews">
+    <h2>What Our Customers Say</h2>
+    <div class="review">“A lifesaver before every exam!”</div>
+    <div class="review">“Buzz Bite gets me through my 3pm slump like a champ.”</div>
+    <div class="review">“Tastes amazing and works fast. I'm hooked!”</div>
   </section>
-  
-  <!-- Call-to-Action Section -->
-  <section class="cta">
-    <h2>Ready to Get Buzzed?</h2>
-    <p>Don't miss out on our limited-time offer.</p>
-    <a href="#order"><i class="fas fa-shopping-cart"></i> Order Now</a>
-    <div class="countdown" id="cta-countdown">
-      Offer ends in: <span id="cta-time"></span>
-    </div>
-  </section>
-  
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 BuzzBite. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
+    <div class="newsletter">
+      <label>Subscribe for updates:</label>
+      <input type="email" placeholder="Enter your email">
+      <button>Subscribe</button>
+    </div>
+    <div class="nav">
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="social">
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-tiktok"></i>
+      <i class="fab fa-twitter"></i>
     </div>
   </footer>
-  
-  <!-- JavaScript for Interactivity -->
-  <script>
-    // Countdown Timer Functionality for Hero & CTA Sections
-    function startCountdown(timeId) {
-      const timeElement = document.getElementById(timeId);
-      // Set offer end date 3 days from now
-      const offerEndDate = new Date();
-      offerEndDate.setDate(offerEndDate.getDate() + 3);
-      
-      function updateCountdown() {
-        const now = new Date();
-        const timeRemaining = offerEndDate - now;
-        
-        if (timeRemaining < 0) {
-          timeElement.innerHTML = "Offer expired";
-          return;
-        }
-        
-        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-        
-        timeElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
-      }
-      
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    }
-    
-    // Start countdown timers for hero and CTA sections
-    startCountdown("hero-time");
-    startCountdown("cta-time");
-    
-    // Testimonial Slider Functionality
-    const slider = document.getElementById('testimonial-slider');
-    const testimonials = slider.children;
-    let currentIndex = 0;
-    
-    function showTestimonial(index) {
-      slider.style.transform = 'translateX(' + (-index * 100) + '%)';
-    }
-    
-    document.getElementById('next').addEventListener('click', function() {
-      currentIndex = (currentIndex + 1) % testimonials.length;
-      showTestimonial(currentIndex);
-    });
-    
-    document.getElementById('prev').addEventListener('click', function() {
-      currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-      showTestimonial(currentIndex);
-    });
-    
-    // Auto slide every 5 seconds
-    setInterval(function() {
-      currentIndex = (currentIndex + 1) % testimonials.length;
-      showTestimonial(currentIndex);
-    }, 5000);
-  </script>
 </body>
 </html>
+
