@@ -508,37 +508,58 @@
   </section>
   
   <!-- Customer Testimonials Carousel Section -->
-  <section id="testimonials" class="fade-in">
-    <h2>Buzzing Reviews</h2>
-    <div class="carousel">
-      <div class="carousel-item active fade-in">
-        <p>"Buzz Bite gives me the energy boost I need to power through my day. Absolutely love it!"</p>
-        <div class="testimonial-author">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer photo">
-          <span>Alex, 24</span>
-        </div>
-      </div>
-      <div class="carousel-item fade-in">
-        <p>"The perfect mix of flavor and energy. I feel more focused than ever!"</p>
-        <div class="testimonial-author">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer photo">
-          <span>Jamie, 22</span>
-        </div>
-      </div>
-      <div class="carousel-item fade-in">
-        <p>"A game-changer for my busy lifestyle. Buzz Bite is my secret weapon for non-stop energy."</p>
-        <div class="testimonial-author">
-          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer photo">
-          <span>Sam, 26</span>
+<section id="testimonials" style="padding: 4rem 2rem; background: linear-gradient(135deg, #fffbe6, #fff1b8); text-align: center;">
+  <h2 style="font-size: 2.5rem; font-weight: 700; color: #222;">Buzzing Reviews</h2>
+  <p style="font-size: 1.2rem; color: #555; margin-top: 0.5rem; margin-bottom: 2rem;">
+    ⚡ Real people. Real energy. Real results.
+  </p>
+
+  <div class="testimonial-carousel" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1.5rem; padding-bottom: 1rem; scroll-behavior: smooth;">
+    
+    <!-- Testimonial 1 -->
+    <div class="testimonial-card" style="min-width: 300px; max-width: 320px; flex: 0 0 auto; background: white; padding: 1.5rem; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); scroll-snap-align: center;">
+      <p style="font-size: 1rem; font-style: italic; color: #333;">“<strong>Buzz Bite</strong> gives me the energy boost I need to power through my day. Absolutely love it!”</p>
+      <div style="margin-top: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex photo" style="width: 50px; height: 50px; border-radius: 50%;">
+        <div style="text-align: left;">
+          <strong>Alex, 24</strong><br>
+          <span style="font-size: 0.85rem; color: #777;">Fitness Coach, Mumbai</span>
         </div>
       </div>
     </div>
-    <div class="carousel-controls">
-      <button id="prev">&#10094;</button>
-      <button id="next">&#10095;</button>
+
+    <!-- Testimonial 2 -->
+    <div class="testimonial-card" style="min-width: 300px; max-width: 320px; flex: 0 0 auto; background: white; padding: 1.5rem; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); scroll-snap-align: center;">
+      <p style="font-size: 1rem; font-style: italic; color: #333;">“The perfect mix of <strong>flavor</strong> and <strong>energy</strong>. I feel more focused than ever!”</p>
+      <div style="margin-top: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jamie photo" style="width: 50px; height: 50px; border-radius: 50%;">
+        <div style="text-align: left;">
+          <strong>Jamie, 22</strong><br>
+          <span style="font-size: 0.85rem; color: #777;">Design Student, Pune</span>
+        </div>
+      </div>
     </div>
-  </section>
-  
+
+    <!-- Testimonial 3 -->
+    <div class="testimonial-card" style="min-width: 300px; max-width: 320px; flex: 0 0 auto; background: white; padding: 1.5rem; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); scroll-snap-align: center;">
+      <p style="font-size: 1rem; font-style: italic; color: #333;">“A game-changer for my busy lifestyle. <strong>Buzz Bite</strong> is my secret weapon for <strong>non-stop energy</strong>.”</p>
+      <div style="margin-top: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Sam photo" style="width: 50px; height: 50px; border-radius: 50%;">
+        <div style="text-align: left;">
+          <strong>Sam, 26</strong><br>
+          <span style="font-size: 0.85rem; color: #777;">Startup Founder, Bengaluru</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 2rem;">
+    <button style="background-color: #ffc107; color: #000; padding: 0.8rem 1.5rem; border: none; border-radius: 50px; font-weight: 600; cursor: pointer;">
+      💬 Share your Buzz Bite story
+    </button>
+  </div>
+</section>
   
   <!-- Social Media Section -->
   <section id="socials" class="fade-in">
