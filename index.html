@@ -4,207 +4,707 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buzz Bite - Caffeinated Chewing Gum</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts for a modern, Gen Z look -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
+    /* CSS Variables for consistency */
+    :root {
+      --primary-color: #f4cb07;
+      --accent-color: #ffe680;
+      --dark-color: #333;
+      --light-color: #fff;
+    }
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background: #fff;
-      color: #111;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      /* Custom Cursor: lightning bolt icon */
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 16 16'%3E%3Cpath fill='%23f4cb07' d='M11.3 1L3 9h5v6l5-8h-5z'/%3E%3C/svg%3E") 8 0, auto;
     }
-    header {
-      background: #000;
-      color: #FFD700;
-      padding: 2rem;
-      text-align: center;
+    a {
+      text-decoration: none;
     }
-    .hero {
-      position: relative;
-      height: 90vh;
-      overflow: hidden;
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-out both;
+    }
+    /* Fixed Top Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .navbar .logo img {
+      height: 50px;
+    }
+    .navbar nav ul {
+      list-style: none;
       display: flex;
       align-items: center;
-      justify-content: center;
-      background-color: #000;
-      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar nav ul li {
+      margin-left: 20px;
+    }
+    .navbar nav ul li a {
+      font-weight: bold;
+      color: var(--dark-color);
+      transition: color 0.3s;
+      letter-spacing: 0.5px;
+    }
+    .navbar nav ul li a:hover {
+      color: #555;
+    }
+    .header-icons {
+      display: flex;
+      align-items: center;
+    }
+    .header-icons a {
+      margin-left: 15px;
+      color: var(--dark-color);
+      font-size: 1.4rem;
+      transition: color 0.3s;
+    }
+    .header-icons a:hover {
+      color: #555;
+    }
+    /* Hero Section */
+    .hero {
+      margin-top: 80px; /* Offset for fixed header */
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      overflow: hidden;
     }
     .hero video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero .overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      opacity: 0.4;
-    }
-    .hero-content {
-      position: relative;
+      background-color: rgba(0, 0, 0, 0.4);
       z-index: 1;
-      text-align: center;
     }
-    .hero h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-    .hero button {
-      background: #FFD700;
-      color: #000;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      border: none;
-      cursor: pointer;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-    .benefits {
+    .hero .content {
+      position: relative;
+      z-index: 2;
       display: flex;
-      justify-content: space-around;
-      padding: 4rem 2rem;
-      background: #f9f9f9;
-    }
-    .benefit {
-      text-align: center;
-      max-width: 200px;
-    }
-    .benefit i {
-      font-size: 2.5rem;
-      color: #FFD700;
-      margin-bottom: 1rem;
-    }
-    .lifestyle {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      padding: 4rem 2rem;
-      background: #fff;
-    }
-    .lifestyle img {
-      width: 300px;
-      margin: 1rem;
-      border-radius: 1rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    .flavors {
-      display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      background: #000;
-      padding: 3rem 1rem;
-      color: #fff;
-    }
-    .flavor {
-      margin: 0 2rem;
+      height: 100%;
       text-align: center;
+      padding: 0 20px;
+      color: var(--light-color); /* White text */
     }
-    .flavor h3 {
-      color: #FFD700;
-      margin-top: 1rem;
+    .hero .content h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     }
-    .reviews {
-      padding: 4rem 2rem;
-      background: #f1f1f1;
-      text-align: center;
+    .hero .content p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
-    .review {
+    .hero .content .cta {
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+      padding: 15px 30px;
       font-size: 1.2rem;
-      margin: 1rem 0;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .hero .content .cta:hover {
+      background-color: #e0b406;
+      transform: scale(1.05);
+    }
+    /* Shop Now Section */
+    #shop {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    #shop h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .shop-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .shop-image, .shop-cta {
+      flex: 1;
+      min-width: 300px;
+    }
+    .shop-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .shop-image img:hover {
+      transform: scale(1.05);
+    }
+    .shop-cta {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      padding: 20px;
+    }
+    .shop-cta h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+    .shop-cta p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    .shop-cta a {
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.3s;
+      display: inline-block;
+    }
+    .shop-cta a:hover {
+      background-color: #e0b406;
+      transform: scale(1.05);
+    }
+    /* Qualities Horizontal Strip */
+    #qualities-strip {
+      padding: 60px 20px;
+      background: #000; /* Black background */
+      color: var(--light-color);
+      text-align: center;
+    }
+    #qualities-strip .qualities-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 30px;
+    }
+    .quality-item {
+      flex: 1;
+      min-width: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+    .quality-item:hover {
+      transform: scale(1.05);
+    }
+    .quality-item i {
+      font-size: 3rem;
+      background: var(--light-color);
+      color: var(--primary-color);
+      padding: 20px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      margin-bottom: 10px;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .quality-item i:hover {
+      transform: scale(1.1);
+      background: var(--accent-color);
+    }
+    .quality-item p {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    /* Customer Testimonials Carousel Section */
+    #testimonials {
+      padding: 100px 20px;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      text-align: center;
+      color: var(--dark-color);
+      position: relative;
+    }
+    #testimonials h2 {
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .carousel {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .carousel-item {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    .carousel-item.active {
+      display: block;
+      opacity: 1;
+    }
+    .carousel-item p {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
       font-style: italic;
     }
-    footer {
-      background: #000;
-      color: #fff;
-      padding: 2rem;
+    .testimonial-author {
       display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
     }
-    footer .newsletter input {
-      padding: 0.5rem;
-      margin-right: 0.5rem;
+    .testimonial-author img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 3px solid var(--light-color);
+      transition: transform 0.3s;
+    }
+    .testimonial-author img:hover {
+      transform: scale(1.1);
+    }
+    .testimonial-author span {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .carousel-controls {
+      margin-top: 20px;
+    }
+    .carousel-controls button {
+      background-color: var(--primary-color);
+      border: none;
+      color: var(--dark-color);
+      padding: 10px 15px;
+      margin: 0 5px;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .carousel-controls button:hover {
+      background-color: #e0b406;
+      transform: scale(1.1);
+    }
+    /* Availability Section for Quick Commerce Apps */
+    #availability {
+      padding: 60px 20px;
+      background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+      text-align: center;
+    }
+    #availability h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .availability-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .availability-container a {
+      display: inline-block;
+      transition: transform 0.3s;
+    }
+    .availability-container a img {
+      width: 150px;
+      height: auto;
+    }
+    .availability-container a:hover img {
+      transform: scale(1.05);
+    }
+    /* Socials Section */
+    #socials {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    #socials h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    /* Footer Section */
+    footer {
+      background-color: var(--dark-color);
+      color: var(--light-color);
+      text-align: center;
+      padding: 40px 20px;
+    }
+    footer p {
+      margin: 10px 0;
     }
     footer a {
-      color: #FFD700;
-      margin: 0 1rem;
-      text-decoration: none;
+      color: var(--primary-color);
+      margin: 0 10px;
+      transition: color 0.3s;
     }
-    .social i {
-      margin: 0 0.5rem;
-      color: #FFD700;
+    footer a:hover {
+      color: var(--accent-color);
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero .content h1 {
+        font-size: 3rem;
+      }
+      .hero .content p {
+        font-size: 1.2rem;
+      }
+      .shop-cta h3 {
+        font-size: 1.8rem;
+      }
+      #qualities-strip .qualities-container,
+      .availability-container {
+        flex-direction: column;
+      }
+    }
+    /* Display Instagram posts side by side on desktop */
+    @media (min-width: 768px) {
+      .socials-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .social-item {
+        flex: 1 1 calc(33.33% - 20px);
+        max-width: calc(33.33% - 20px);
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Buzz Bite</h1>
+  <!-- Fixed Top Navigation -->
+  <header class="navbar fade-in">
+    <div class="logo">
+      <a href="index.html">
+        <img src="https://raw.githubusercontent.com/som221993/buzzbite/e92938738a167f8cec2dc79089ac782793b7a079/Screenshot%202025-03-24%20at%209.00.18%20PM.png" alt="Buzz Bite Logo">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#shop">Shop Now</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+      <a href="profile.html"><i class="fas fa-user"></i></a>
+    </div>
   </header>
-  <section class="hero">
+  
+  <!-- Hero Section -->
+  <section class="hero fade-in">
     <video autoplay muted loop>
       <source src="https://github.com/som221993/buzzbite/blob/0c3594fcc114a3030c3d64b26bc7fb7a4dfe078e/Landing%20page%20video%20(1)%20(1).mp4?raw=true" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <div class="hero-content">
-      <h1>Chew. Charge. Conquer.</h1>
-      <button>Get Your Buzz</button>
+    <div class="overlay"></div>
+    <div class="content fade-in">
+      <h1>Buzz Bite</h1>
+      <p>Experience the jolt of energy in every bite. Chew your way to alertness with our caffeinated gum.</p>
+      <a class="cta" href="#shop">Shop Now</a>
     </div>
   </section>
-  <section class="benefits">
-    <div class="benefit">
-      <i class="fas fa-bolt"></i>
-      <h3>Instant Energy</h3>
-    </div>
-    <div class="benefit">
-      <i class="fas fa-smile"></i>
-      <h3>No Crash</h3>
-    </div>
-    <div class="benefit">
-      <i class="fas fa-pocket"></i>
-      <h3>Pocket-Friendly</h3>
-    </div>
-  </section>
-  <section class="lifestyle">
-    <img src="https://github.com/som221993/buzzbite/blob/0c3594fcc114a3030c3d64b26bc7fb7a4dfe078e/buzzbites.png?raw=true" alt="Office use">
-    <img src="https://github.com/som221993/buzzbite/blob/0c3594fcc114a3030c3d64b26bc7fb7a4dfe078e/WhatsApp%20Image%202025-03-24%20at%2018.31.50.jpeg?raw=true" alt="Gym use">
-    <img src="https://via.placeholder.com/300" alt="Studying">
-  </section>
-  <section class="flavors">
-    <div class="flavor">
-      <img src="https://via.placeholder.com/100" alt="Mint">
-      <h3>Mint</h3>
-    </div>
-    <div class="flavor">
-      <img src="https://via.placeholder.com/100" alt="Citrus">
-      <h3>Citrus</h3>
-    </div>
-    <div class="flavor">
-      <img src="https://via.placeholder.com/100" alt="Berry">
-      <h3>Berry</h3>
+  
+  <!-- Shop Now Section -->
+  <section id="shop" class="fade-in">
+    <h2>Unleash the Buzz</h2>
+    <div class="shop-container">
+      <div class="shop-image">
+        <img src="https://raw.githubusercontent.com/som221993/buzzbite/e92938738a167f8cec2dc79089ac782793b7a079/buzzbites.png" alt="Buzz Bite Product">
+      </div>
+      <div class="shop-cta">
+        <h3>Chew, Energize, Conquer!</h3>
+        <p>Amp up your day with the bold, caffeinated burst of Buzz Bite. Perfect for on-the-go energy to fuel your hustle.</p>
+        <a href="shop.html">Shop Now</a>
+      </div>
     </div>
   </section>
-  <section class="reviews">
-    <h2>What Our Customers Say</h2>
-    <div class="review">“A lifesaver before every exam!”</div>
-    <div class="review">“Buzz Bite gets me through my 3pm slump like a champ.”</div>
-    <div class="review">“Tastes amazing and works fast. I'm hooked!”</div>
+  
+  <!-- Qualities Horizontal Strip -->
+  <section id="qualities-strip" class="fade-in">
+    <div class="qualities-container">
+      <div class="quality-item">
+        <i class="fas fa-bolt"></i>
+        <p>60 mg Caffeine</p>
+      </div>
+      <div class="quality-item">
+        <i class="fas fa-leaf"></i>
+        <p>Low Calories</p>
+      </div>
+      <div class="quality-item">
+        <!-- Updated Zero Sugar icon -->
+        <i class="fas fa-ban"></i>
+        <p>Zero Sugar</p>
+      </div>
+      <div class="quality-item">
+        <i class="fas fa-crosshairs"></i>
+        <p>Extreme Focus</p>
+      </div>
+    </div>
   </section>
-  <footer>
-    <div class="newsletter">
-      <label>Subscribe for updates:</label>
-      <input type="email" placeholder="Enter your email">
-      <button>Subscribe</button>
+  
+  <!-- Customer Testimonials Carousel Section -->
+  <section id="testimonials" class="fade-in">
+    <h2>Buzzing Reviews</h2>
+    <div class="carousel">
+      <div class="carousel-item active fade-in">
+        <p>"Buzz Bite gives me the energy boost I need to power through my day. Absolutely love it!"</p>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer photo">
+          <span>Alex, 24</span>
+        </div>
+      </div>
+      <div class="carousel-item fade-in">
+        <p>"The perfect mix of flavor and energy. I feel more focused than ever!"</p>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer photo">
+          <span>Jamie, 22</span>
+        </div>
+      </div>
+      <div class="carousel-item fade-in">
+        <p>"A game-changer for my busy lifestyle. Buzz Bite is my secret weapon for non-stop energy."</p>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer photo">
+          <span>Sam, 26</span>
+        </div>
+      </div>
     </div>
-    <div class="nav">
-      <a href="#">Home</a>
-      <a href="#">Shop</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+    <div class="carousel-controls">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
     </div>
-    <div class="social">
-      <i class="fab fa-instagram"></i>
-      <i class="fab fa-tiktok"></i>
-      <i class="fab fa-twitter"></i>
+  </section>
+  
+  
+  <!-- Social Media Section -->
+  <section id="socials" class="fade-in">
+    <h2>Follow us on socials</h2>
+    <div class="socials-container">
+      <div class="social-item">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DHl0h80s5-g/?igsh=YW9id2tybTl3dWNs" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px rgba(0,0,0,0.5),0 1px 10px rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:100%;">
+        </blockquote>
+      </div>
+      <div class="social-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DHl0c4bMiZv/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+        <div style="padding:16px;"> 
+          <a href="https://www.instagram.com/p/DHl0c4bMiZv/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> 
+            <div style=" display: flex; flex-direction: row; align-items: center;"> 
+              <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> 
+              <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> 
+                <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> 
+                <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div>
+              </div>
+            </div>
+            <div style="padding: 19% 0;"></div> 
+            <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+              <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                    <g>
+                      <path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div style="padding-top: 8px;"> 
+              <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div>
+            </div>
+            <div style="padding: 12.5% 0;"></div> 
+            <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+              <div>
+                <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div>
+                <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div>
+                <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div>
+              </div>
+              <div style="margin-left: 8px;">
+                <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div>
+                <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div>
+              </div>
+              <div style="margin-left: auto;">
+                <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div>
+                <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div>
+                <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+              <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div>
+              <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div>
+            </div>
+          </a>
+          <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+            <a href="https://www.instagram.com/p/DHl0c4bMiZv/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by BuzzBite⚡️ (@buzzbite2025)</a>
+          </p>
+        </div>
+        </blockquote>
+        <script async src="//www.instagram.com/embed.js"></script>
+      </div>
+      <div class="social-item">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DHl0YWssOR8/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+          <div style="padding:16px;"> 
+            <a href="https://www.instagram.com/p/DHl0YWssOR8/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> 
+              <div style=" display: flex; flex-direction: row; align-items: center;"> 
+                <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> 
+                <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> 
+                  <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> 
+                  <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div>
+                </div>
+              </div>
+              <div style="padding: 19% 0;"></div> 
+              <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                      <g>
+                        <path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div style="padding-top: 8px;"> 
+                <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div>
+              </div>
+              <div style="padding: 12.5% 0;"></div> 
+              <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                <div>
+                  <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div>
+                  <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div>
+                  <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div>
+                </div>
+                <div style="margin-left: 8px;">
+                  <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div>
+                  <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div>
+                </div>
+                <div style="margin-left: auto;">
+                  <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div>
+                  <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div>
+                  <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+                <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div>
+                <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div>
+              </div>
+            </a>
+            <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+              <a href="https://www.instagram.com/p/DHl0YWssOR8/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by BuzzBite⚡️ (@buzzbite2025)</a>
+            </p>
+          </div>
+        </blockquote>
+        <script async src="//www.instagram.com/embed.js"></script>
+      </div>
     </div>
+  </section>
+  
+  <!-- Footer Section -->
+  <footer class="fade-in">
+    <p>&copy; 2025 Buzz Bite. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms & Conditions</a> |
+      <a href="#">Contact Us</a>
+    </p>
+    <p>
+      Follow us:
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </p>
   </footer>
+  
+  <!-- JavaScript for Testimonials Carousel -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.carousel-item');
+      const totalSlides = slides.length;
+      
+      document.getElementById('next').addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+      });
+      
+      document.getElementById('prev').addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+      });
+      
+      function goToSlide(n) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (n + totalSlides) % totalSlides;
+        slides[currentSlide].classList.add('active');
+      }
+      
+      // Auto slide every 5 seconds
+      setInterval(() => {
+        goToSlide(currentSlide + 1);
+      }, 5000);
+    });
+  </script>
 </body>
 </html>
+
 
