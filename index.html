@@ -469,20 +469,129 @@
     </div>
   </section>
   
-  <!-- Shop Now Section -->
-  <section id="shop" class="fade-in">
-    <h2>Unleash the Buzz</h2>
-    <div class="shop-container">
-      <div class="shop-image">
-        <img src="https://raw.githubusercontent.com/som221993/buzzbite/e92938738a167f8cec2dc79089ac782793b7a079/buzzbites.png" alt="Buzz Bite Product">
-      </div>
-      <div class="shop-cta">
-        <h3>Chew, Energize, Conquer!</h3>
-        <p>Amp up your day with the bold, caffeinated burst of Buzz Bite. Perfect for on-the-go energy to fuel your hustle.</p>
-        <a href="shop.html">Shop Now</a>
+<!-- Shop Now Section -->
+<section id="shop" class="fade-in" style="padding: 4rem 2rem; background-color: #fff;">
+  <style>
+    .shop-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .shop-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .shop-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .shop-cta {
+      max-width: 500px;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .shop-cta {
+        text-align: left;
+      }
+    }
+
+    .shop-cta .micro-tagline {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ffcc00;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .shop-cta h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 0 1rem;
+      color: #222;
+    }
+
+    .shop-cta p {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    .shop-cta .cta-button {
+      display: inline-block;
+      background-color: #ffcc00;
+      color: #000;
+      font-weight: 600;
+      padding: 0.85rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .shop-cta .cta-button:hover {
+      background-color: #e6b800;
+      transform: translateY(-2px);
+    }
+
+    .shop-cta .cta-note {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .review-badge {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .review-badge span {
+      color: #222;
+      font-weight: 600;
+    }
+  </style>
+
+  <div class="shop-container">
+    <!-- Product Image -->
+    <div class="shop-image">
+      <img src="https://raw.githubusercontent.com/som221993/buzzbite/e92938738a167f8cec2dc79089ac782793b7a079/buzzbites.png" alt="Buzz Bite Product">
+    </div>
+
+    <!-- CTA Content -->
+    <div class="shop-cta">
+      <div class="micro-tagline">THE FUTURE OF ENERGY, IN A GUM</div>
+      <h3>Chew, Energize, Conquer!</h3>
+      <p>
+        Amp up your day with a bold burst of Buzz Bite.  
+        Perfect for on-the-go energy when you need it most.
+      </p>
+      <a href="shop.html" class="cta-button">
+        Shop Now
+      </a>
+      <span class="cta-note">Free shipping on your first order</span>
+      <div class="review-badge">
+        ⭐ Rated <span>4.8/5</span> by 500+ customers
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
   
   <!-- Qualities Horizontal Strip -->
   <section id="qualities-strip" class="fade-in">
