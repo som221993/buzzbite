@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Story | Buzz Bite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-color: #f4cb07;
+      --accent-color: #ffe680;
+      --light-color: #fff;
+      --dark-color: #111;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)),
+        url('https://images.unsplash.com/photo-1625603749864-7e6fd0ec356d?auto=format&fit=crop&w=1650&q=80') no-repeat center center / cover;
+      color: var(--light-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Shared Header */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .navbar .logo img {
+      height: 50px;
+    }
+
+    .navbar nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar nav ul li {
+      margin-left: 20px;
+    }
+
+    .navbar nav ul li a {
+      font-weight: bold;
+      color: var(--dark-color);
+      transition: color 0.3s;
+      letter-spacing: 0.5px;
+    }
+
+    .navbar nav ul li a:hover {
+      color: #555;
+    }
+
+    .header-icons {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-icons a {
+      margin-left: 15px;
+      color: var(--dark-color);
+      font-size: 1.4rem;
+      transition: color 0.3s;
+    }
+
+    .header-icons a:hover {
+      color: #555;
+    }
+
+    /* Our Story Content */
+    main {
+      flex-grow: 1;
+      padding: 7rem 2rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .story-container {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      max-width: 900px;
+      width: 100%;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+      letter-spacing: 1px;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      text-align: center;
+      color: #ffc107;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+      color: #f0f0f0;
+    }
+
+    em {
+      display: block;
+      font-style: italic;
+      color: var(--accent-color);
+      margin: 1.5rem 0;
+      font-weight: 500;
+    }
+
+    strong {
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      main {
+        padding-top: 6rem;
+      }
+    }
+
+    /* Shared Footer */
+    footer {
+      background-color: var(--dark-color);
+      color: var(--light-color);
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    footer p {
+      margin: 10px 0;
+    }
+
+    footer a {
+      color: var(--primary-color);
+      margin: 0 10px;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="https://raw.githubusercontent.com/som221993/buzzbite/e92938738a167f8cec2dc79089ac782793b7a079/Screenshot%202025-03-24%20at%209.00.18%20PM.png" alt="Buzz Bite Logo">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html#shop">Shop Now</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+      <a href="profile.html"><i class="fas fa-user"></i></a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="story-container">
+      <h1>Our Story</h1>
+      <h3>From late-night hustle to game-changing chew.</h3>
+
+      <p>I still remember the moment Buzz Bite was born.  
+      It was <strong>3:17 AM</strong>. I was wired, exhausted, and hunched over my laptop trying to finish a design project that was due at sunrise. Three cups of coffee deep and already feeling the jittery crash — I realized something had to change.</p>
+
+      <p>My roommate Tanisha walked in half-asleep for her 5 AM lab prep. She grabbed a stick of gum, looked at my coffee cup graveyard, and casually muttered:</p>
+
+      <em>“You know… someone should just put caffeine in gum.”</em>
+
+      <p>That offhand comment lit a spark.  
+      What if energy didn’t have to come with the crash, the mess, or the bitter aftertaste?</p>
+
+      <p>From that night on, we became obsessed.  
+      We started researching how caffeine works, how fast it absorbs through the gums, what flavors hit right, and how we could make something that actually <strong>tastes good</strong>.</p>
+
+      <p>We weren’t building a product — we were solving a problem we lived every single day:</p>
+      <p><strong>How do we stay sharp, focused, and in control… without sacrificing health or convenience?</strong></p>
+
+      <p>And that’s how <strong>Buzz Bite</strong> was born.</p>
+
+      <p>Today, Buzz Bite isn’t just gum.  
+      It’s a no-BS energy source for people like us — who are always on the move, building, grinding, dreaming.</p>
+
+      <p>We made Buzz Bite because we needed it.  
+      And now, it’s yours.</p>
+
+      <p><strong>— The Buzz Bite Crew ⚡</strong></p>
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer>
+    <p>&copy; 2025 Buzz Bite. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms & Conditions</a> |
+      <a href="contact.html">Contact Us</a>
+    </p>
+    <p>
+      Follow us:
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </p>
+  </footer>
+
+</body>
+</html>
