@@ -705,7 +705,40 @@
       </div>
     </div>
   </section>
-  
+  <!-- Video Highlight Section -->
+<section class="buzzbite-video-highlight">
+  <video autoplay muted loop playsinline>
+    <source src="https://github.com/som221993/buzzbite/blob/12c740926645bfb04d7dc696c896c3452bc762f3/WhatsApp%20Video%202025-03-25%20at%2001.29.31.mp4?raw=true" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+<style>
+  .buzzbite-video-highlight {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+  }
+
+  .buzzbite-video-highlight video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  @media (max-width: 768px) {
+    .buzzbite-video-highlight {
+      height: 50vh;
+    }
+  }
+</style>
+
   <!-- Testimonials Section -->
 <section id="testimonials" style="background: linear-gradient(135deg, #fffbe6, #fff1b8); padding: 4rem 2rem; text-align: center;">
   <style>
