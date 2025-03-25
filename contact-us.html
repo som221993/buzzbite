@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Buzz Bite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-color: #f4cb07;
+      --accent-color: #ffe680;
+      --dark-color: #111;
+      --light-color: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fefbe9;
+      color: #222;
+    }
+
+    header.navbar {
+      background-color: var(--primary-color);
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header.navbar .logo img {
+      height: 50px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--dark-color);
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #555;
+    }
+
+    .header-icons a {
+      margin-left: 15px;
+      font-size: 1.4rem;
+      color: var(--dark-color);
+    }
+
+    .contact-hero {
+      padding: 5rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .contact-hero h1 {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .contact-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #444;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      justify-content: space-between;
+    }
+
+    .contact-info, .contact-form {
+      flex: 1 1 400px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .contact-info h3, .contact-form h3 {
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .contact-info p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .contact-form form input,
+    .contact-form form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .contact-form form button {
+      background-color: var(--primary-color);
+      color: #000;
+      font-weight: bold;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .contact-form form button:hover {
+      background-color: #e0b406;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+
+    footer {
+      background-color: var(--dark-color);
+      color: var(--light-color);
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: var(--primary-color);
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="https://raw.githubusercontent.com/som221993/buzzbite/e92938738a167f8cec2dc79089ac782793b7a079/Screenshot%202025-03-24%20at%209.00.18%20PM.png" alt="Buzz Bite Logo">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html#shop">Shop Now</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+      <a href="profile.html"><i class="fas fa-user"></i></a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="contact-hero">
+    <h1>Hit Us Up 💬</h1>
+    <p>Whether you're buzzing with ideas, complaints, or love letters — we're here for it. Slide into our inbox, drop us a DM, or send us a carrier pigeon (just kidding... maybe).</p>
+  </section>
+
+  <!-- Contact Grid -->
+  <div class="contact-grid">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h3>Where We Live (and Chew)</h3>
+      <p><strong>Buzz Bite HQ</strong><br>
+      91, Caffeine Street<br>
+      Mumbai, MH 400001<br>
+      India</p>
+
+      <p><strong>Phone:</strong> +91 91234 56789<br>
+      <strong>Email:</strong> hello@buzzbite.energy</p>
+
+      <div style="margin: 1.5rem 0;">
+        <a href="https://wa.me/919123456789" target="_blank" style="display:inline-block; background:#25D366; color:white; padding:10px 20px; border-radius:50px; font-weight:600; margin-right:10px; text-decoration:none;">
+          <i class="fab fa-whatsapp"></i> WhatsApp Us
+        </a>
+
+        <a href="https://instagram.com/buzzbite2025" target="_blank" style="display:inline-block; background:#E4405F; color:white; padding:10px 20px; border-radius:50px; font-weight:600; text-decoration:none;">
+          <i class="fab fa-instagram"></i> DM on Instagram
+        </a>
+      </div>
+
+      <p>Our response speed? Faster than your coffee machine.</p>
+
+      <!-- Google Maps -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12089.566150690977!2d72.8162944!3d18.9447279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce3604a3c2cf%3A0x94a88a6944ad1832!2sMarine%20Drive%2C%20Mumbai%2C%20Maharashtra%20400020!5e0!3m2!1sen!2sin!4v1646990828425!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h3>Say Hello 👋</h3>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <textarea rows="5" placeholder="What's on your mind?" required></textarea>
+        <button type="submit">Send Message 🚀</button>
+      </form>
+      <p style="font-size: 0.9rem; color: #777; margin-top: 1rem;">We usually reply in under 24 hours (unless we're chewing).</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Buzz Bite. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms & Conditions</a> |
+      <a href="contact.html">Contact Us</a>
+    </p>
+    <p>
+      Follow us:
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </p>
+  </footer>
+
+</body>
+</html>
