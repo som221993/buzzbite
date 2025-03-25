@@ -558,6 +558,130 @@
   </div>
 </section>
 
+<section style="padding: 5rem 2rem; background: #fffbe6;">
+  <style>
+    .buzzbite-usecases {
+      max-width: 1280px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .buzzbite-usecases h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #222;
+      margin-bottom: 0.5rem;
+    }
+
+    .buzzbite-usecases .subtext {
+      font-size: 1.2rem;
+      color: #444;
+      margin-bottom: 3rem;
+      font-weight: 500;
+    }
+
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .usecase-tile {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 420px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .usecase-tile:hover {
+      transform: scale(1.03);
+    }
+
+    .usecase-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .usecase-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 1.2rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: #fff;
+      width: 100%;
+      text-align: left;
+    }
+
+    .usecase-overlay h3 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .usecase-overlay p {
+      margin: 0.3rem 0 0;
+      font-size: 1rem;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+      .buzzbite-usecases h2 {
+        font-size: 2.2rem;
+      }
+
+      .usecase-overlay h3 {
+        font-size: 1.2rem;
+      }
+
+      .usecase-overlay p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+
+  <div class="buzzbite-usecases">
+    <div class="buzz-icon">⚡</div>
+    <h2>Where Buzz Bite Takes You</h2>
+    <p class="subtext">Study. Sweat. Celebrate. Buzz Bite fuels you through it all.</p>
+
+    <div class="usecase-grid">
+      <!-- Tile 1 -->
+      <div class="usecase-tile">
+        <img src="https://th.bing.com/th/id/OIG1.xMvRuMpdxzFZWOZ12J47?pid=ImgGn" alt="Late-night studying">
+        <div class="usecase-overlay">
+          <h3>LATE-NIGHT GRIND</h3>
+          <p>Burn the midnight oil — Buzz Bite’s got your back.</p>
+        </div>
+      </div>
+
+      <!-- Tile 2 -->
+      <div class="usecase-tile">
+        <img src="https://th.bing.com/th/id/OIG1.FJKphMOidHlFcCNGMtqu?pid=ImgGn" alt="Game time">
+        <div class="usecase-overlay">
+          <h3>GAME FACE ON</h3>
+          <p>From reps to race day — power every move with Buzz Bite.</p>
+        </div>
+      </div>
+
+      <!-- Tile 3 -->
+      <div class="usecase-tile">
+        <img src="https://th.bing.com/th/id/OIG3.hhxqCL_hUk6r1zczGAjO?pid=ImgGn" alt="Party mode">
+        <div class="usecase-overlay">
+          <h3>LIGHTS. BUZZ. ACTION.</h3>
+          <p>Outlast the night, outshine the crowd — no crash, just buzz.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
   
   <!-- Qualities Horizontal Strip -->
   <section id="qualities-strip" class="fade-in">
@@ -685,6 +809,129 @@
       💬 Share your Buzz Bite story
     </button>
   </div>
+</section>
+
+<section style="padding: 5rem 2rem; background-color: #fdfbf6;">
+  <style>
+    .faq-section {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .faq-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #222;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 1rem 0;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .faq-question:hover {
+      color: #f4cb07;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+      margin-top: 0.5rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-toggle {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+  </style>
+
+  <div class="faq-section">
+    <h2>Buzz Bite FAQs</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Is Buzz Bite safe for daily use?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        Yes! Buzz Bite is made with caffeine and ingredients that are well within the recommended daily limits. Just like your morning coffee or energy drink — but in a cleaner, more controlled form. We recommend not exceeding 4 pieces per day.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Will Buzz Bite make me jittery or cause a crash?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        Unlike sugary energy drinks, Buzz Bite delivers a smoother energy boost without the sugar spike and crash. Each piece contains just the right dose of caffeine for a clean, focused buzz — not jitters.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How does Buzz Bite taste?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        Buzz Bite is crafted to deliver a bold, refreshing burst of flavor — think minty with a punch. Customers say it’s energizing from the very first chew, without any bitter aftertaste.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Does Buzz Bite contain sugar or artificial sweeteners?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        Buzz Bite is sugar-free and uses plant-based sweeteners to give you great taste without the guilt. It's diabetic-friendly and keto-safe too.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Is Buzz Bite suitable for students and professionals?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        Absolutely! Buzz Bite is designed for long study sessions, work crunches, and high-performance situations where staying alert is key. It fits in your pocket and kicks in faster than coffee.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        faqItem.classList.toggle('active');
+      });
+    });
+  </script>
 </section>
 
   
